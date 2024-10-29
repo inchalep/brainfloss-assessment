@@ -1,15 +1,11 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
 import { useState } from "react";
 import Input from "../../components/input";
 import DashboardCard from "../../components/dashboardCard";
-import Notifications from "../../components/notifications";
 import RecentlyPaidInvoices from "../../components/paidInvoices";
 import { FaPlus } from "react-icons/fa";
 
 const Invoices = () => {
   const [searchVal, setSearchVal] = useState("");
-  const state = useSelector((state: RootState) => state.user);
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchVal(e.target.value);
   };

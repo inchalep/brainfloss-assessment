@@ -26,7 +26,7 @@ const Login = () => {
     if (error !== null) {
       toast.error(error);
     }
-  }, [state]);
+  }, [data, error, navigate]);
 
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import coverImg from "../../assets/images/coader.png";
+import coverImg from "../../assets/images/cover.jpg";
 import Login from "../../components/login";
 import { useEffect, useState } from "react";
 import Register from "../../components/register";
@@ -14,12 +14,12 @@ const LoginRegister = () => {
     }
   }, [location]);
   return (
-    <div className='min-h-screen flex justify-between items-center'>
-      <div className='sm:w-5/12 p-5 lg:w-6/12 hidden sm:flex justify-center items-center'>
+    <div className='h-[100vh] flex justify-between items-center'>
+      <div className='sm:w-5/12 lg:w-6/12 h-full hidden sm:flex justify-center items-center'>
         <img
-          title='CoverImage'
+          alt='CoverImage'
           src={coverImg}
-          className='h-full w-full object-fill'
+          className='h-full w-full object-fill rounded-md'
         />
       </div>
       <div className='w-full sm:w-7/12 lg:w-6/12 flex flex-col justify-center items-center p-8 md:p-20'>

@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import UserManagement from "../pages/users";
 import Invoices from "../pages/invoices";
 import NotFound from "../pages/notFound/page";
-import ProtectedRoute from "../components/orotectedRoute";
+import ProtectedRoute from "../components/protectedRoute";
 
 export const router = createBrowserRouter([
   {

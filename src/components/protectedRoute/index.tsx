@@ -14,7 +14,7 @@ const ProtectedRoute = ({ children }: props): any => {
     if (!state.data?.username) {
       navigate("/login");
     }
-  }, [state]);
+  }, [state, navigate]);
 
   return <>{children}</>;
 };
