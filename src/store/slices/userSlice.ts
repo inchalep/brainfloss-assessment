@@ -3,15 +3,18 @@ import { _get } from "../../utils/api";
 
 interface initialStateType {
   data: {
-    username: string;
-    role: string;
+    username: string | undefined;
+    role: string | undefined;
   } | null;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: initialStateType = {
-  data: null,
+  data: {
+    username: "",
+    role: "",
+  },
   isLoading: false,
   error: null,
 };
@@ -26,6 +29,9 @@ const userSlice = createSlice({
   reducers: {
     logoutUser: (state) => {
       state.data = null;
+    },
+    changeUserRole: (state, action) => {
+      state.data = { username: state.data?.username, role: action.payload };
     },
   },
   extraReducers: (builder) => {
@@ -48,5 +54,5 @@ const userSlice = createSlice({
     });
   },
 });
-export const { logoutUser } = userSlice.actions;
+export const { logoutUser, changeUserRole } = userSlice.actions;
 export default userSlice.reducer;

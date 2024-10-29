@@ -27,11 +27,6 @@ const Navbar = () => {
               menu.path.includes("invoices")
             )
               return null;
-            if (
-              state.data?.role.toLowerCase() === "user" &&
-              menu.path.includes("user-management")
-            )
-              return null;
             return (
               <li key={index}>
                 <NavLink

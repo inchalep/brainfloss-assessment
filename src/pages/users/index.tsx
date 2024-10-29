@@ -1,15 +1,41 @@
 import { FaPlus, FaEdit, FaEye, FaTrash, FaCheckCircle } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { usersData } from "../../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
+import { changeUserRole } from "../../store/slices/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const UserManagement = () => {
+  const state = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleUserRole = () => {
+    if (state.data?.role === "admin") {
+      dispatch(changeUserRole("user"));
+    } else {
+      dispatch(changeUserRole("admin"));
+    }
+    navigate("/");
+  };
   return (
     <div className='wrapper p-6 text-white'>
       <div className='flex justify-between items-center pb-8'>
         <h2 className='text-xl text-textPrimary'>User Management</h2>
-        <button className='flex items-center text-white gap-x-1 bg-darkYelow px-3'>
-          <FaPlus color='green' /> <span>Add New User</span>
-        </button>
+        <div>
+          <button
+            className='flex items-center text-white gap-x-1 bg-darkYelow px-3 mb-3'
+            onClick={handleUserRole}
+          >
+            <span>
+              Change role to {state.data?.role === "admin" ? "User" : "Admin"}
+            </span>
+          </button>
+          <button className='flex items-center text-white gap-x-1 bg-darkYelow px-3'>
+            <FaPlus color='green' /> <span>Add New User</span>
+          </button>
+        </div>
       </div>
       <div className='bg-sky-950 p-3 min-h-[calc(100vh-230px)]'>
         <div className='flex p-2 bg-sky-900'>

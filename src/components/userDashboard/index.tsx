@@ -43,8 +43,8 @@ const UserDashboard = () => {
   return (
     <div className='wrapper p-6'>
       <div className='pt-2 pb-6 flex items-center justify-between'>
-        <h2 className='text-4xl text-textPrimary'>
-          Hey {state.data?.username}
+        <h2 className='text-4xl text-textPrimary capitalize'>
+          Hey {state.data?.username},
         </h2>
         <div className='w-72'>
           <Input
