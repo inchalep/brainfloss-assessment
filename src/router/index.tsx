@@ -6,6 +6,7 @@ import UserManagement from "../pages/users";
 import Invoices from "../pages/invoices";
 import NotFound from "../pages/notFound/page";
 import ProtectedRoute from "../components/protectedRoute";
+import PublicdRoute from "../components/publicRoute";
 
 export const router = createBrowserRouter([
   {
@@ -32,11 +33,19 @@ export const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginRegister />,
+    element: (
+      <PublicdRoute>
+        <LoginRegister />
+      </PublicdRoute>
+    ),
   },
   {
     path: "/register",
-    element: <LoginRegister />,
+    element: (
+      <PublicdRoute>
+        <LoginRegister />
+      </PublicdRoute>
+    ),
   },
   {
     path: "/*",
